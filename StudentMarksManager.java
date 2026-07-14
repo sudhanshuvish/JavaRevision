@@ -75,6 +75,31 @@ public class StudentMarksManager {
         }
         System.out.println(topper.getName());
 
+        int averageMarks = 0;
+
+        for(Student1 std : student1List){
+            averageMarks = averageMarks + std.getMarks();
+        }
+
+        System.out.println("Average Marks : "+averageMarks/student1List.size());
+
+
+//        for(Student1 s : student1List){
+//            if(s.getMarks() < 40){
+//                student1List.remove(s);
+//            }
+//        } : This loop is giving exception : java.util.ConcurrentModificationException
+
+        student1List.removeIf(s -> s.getMarks() < 40);
+
+
+
+        System.out.println("After removing student with below 40 marks: "+student1List);
+
+
+
+
+
 
 
     }
